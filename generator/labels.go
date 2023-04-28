@@ -1,11 +1,12 @@
 package generator
 
 import (
+	"os"
 	"strconv"
 	"strings"
 	"text/template"
 
-	"github.com/lucaslorentz/caddy-docker-proxy/v2/caddyfile"
+	"github.com/miniers/caddy-docker-proxy/v2/caddyfile"
 )
 
 type targetsProvider func() ([]string, error)
@@ -35,6 +36,13 @@ func labelsToCaddyfile(labels map[string]string, templateData interface{}, getTa
 		},
 		"h2c": func() string {
 			return "h2c"
+		},
+		//get env variables
+		"getEnv": func(envName string) string {
+			if value, ok := os.LookupEnv(envName); ok {
+				return value
+			}
+			return ""
 		},
 	}
 

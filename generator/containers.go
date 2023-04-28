@@ -2,7 +2,7 @@ package generator
 
 import (
 	"github.com/docker/docker/api/types"
-	"github.com/lucaslorentz/caddy-docker-proxy/v2/caddyfile"
+	"github.com/miniers/caddy-docker-proxy/v2/caddyfile"
 	"go.uber.org/zap"
 )
 
@@ -22,7 +22,7 @@ func (g *CaddyfileGenerator) getContainerIPAddresses(container *types.Container,
 	for networkName, network := range container.NetworkSettings.Networks {
 		include := false
 
-		if !onlyIngressIps  {
+		if !onlyIngressIps {
 			include = true
 		} else if overrideNetwork {
 			include = networkName == ingressNetworkFromLabel

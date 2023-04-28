@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/caddyserver/caddy/v2"
 	"io/ioutil"
 	"net/http"
 	"path/filepath"
@@ -13,15 +14,14 @@ import (
 
 	"os"
 
-	"github.com/caddyserver/caddy/v2"
 	"github.com/caddyserver/caddy/v2/caddyconfig"
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/api/types/filters"
 	"github.com/docker/docker/client"
-	"github.com/lucaslorentz/caddy-docker-proxy/v2/config"
-	"github.com/lucaslorentz/caddy-docker-proxy/v2/docker"
-	"github.com/lucaslorentz/caddy-docker-proxy/v2/generator"
-	"github.com/lucaslorentz/caddy-docker-proxy/v2/utils"
+	"github.com/miniers/caddy-docker-proxy/v2/config"
+	"github.com/miniers/caddy-docker-proxy/v2/docker"
+	"github.com/miniers/caddy-docker-proxy/v2/generator"
+	"github.com/miniers/caddy-docker-proxy/v2/utils"
 
 	"go.uber.org/zap"
 )
